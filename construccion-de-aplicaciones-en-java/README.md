@@ -33,4 +33,4 @@ Aplicación de consola en Java que implementa las operaciones CRUD (Crear, Leer,
 
 ## Autor
 
-Juan Pablo Ramírez
+Juan Pablo Quiroga Q.
