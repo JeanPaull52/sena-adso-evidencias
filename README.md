@@ -10,5 +10,5 @@ Repositorio con las evidencias del programa de formación **Tecnólogo en Análi
 
 ## 👤 Autor
 
-**Juan Pablo Ramírez**
+**Juan Pablo Quiroga Q.**
 Aprendiz - Tecnólogo en Análisis y Desarrollo de Software (SENA)
