@@ -9,7 +9,7 @@ public class Conexion {
   //Datos para la conexión-----
   private static final String URL = "jdbc:sqlserver://localhost:1433;databaseName=ejemplo_colegio;encrypt=true;trustServerCertificate=true;";
   private static final String USUARIO = "sa";
-  private static final String PASSWORD = "LA_CONTRASEÑA_AQUI";
+  private static final String PASSWORD = "TU_CONTRASEÑA_AQUÍ";
 
   static {
         try {

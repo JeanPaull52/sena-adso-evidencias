@@ -125,7 +125,7 @@ Las operaciones de edición y eliminación están accesibles desde la columna "A
 
 ## Autor
 
-**Juan Pablo Ramírez**
+**Juan Pablo Quiroga Q**
 Aprendiz SENA - Análisis y Desarrollo de Software (ADSO)
 Ficha: 3118562
 GitHub: [@JeanPaull52](https://github.com/JeanPaull52)
