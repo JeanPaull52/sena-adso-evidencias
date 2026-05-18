@@ -1,0 +1,43 @@
+# ════════════════════════════════════════════
+# Archivos generados por Maven
+# ════════════════════════════════════════════
+target/
+
+# ════════════════════════════════════════════
+# Archivos compilados de Java
+# ════════════════════════════════════════════
+*.class
+
+# ════════════════════════════════════════════
+# Archivos de configuración de IDEs
+# ════════════════════════════════════════════
+
+# VS Code
+.vscode/
+.classpath
+.project
+.settings/
+.factorypath
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Eclipse
+.metadata/
+.apt_generated/
+.springBeans
+.sts4-cache/
+
+# ════════════════════════════════════════════
+# Logs
+# ════════════════════════════════════════════
+*.log
+
+# ════════════════════════════════════════════
+# Archivos del sistema operativo
+# ════════════════════════════════════════════
+.DS_Store
+Thumbs.db
