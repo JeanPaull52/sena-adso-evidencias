@@ -3,13 +3,17 @@
 <html>
 <head>
     <title>Sistema de Gestión de Estudiantes</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/css/styles.css">
 </head>
 <body>
-    <h1>Sistema de Gestión de Estudiantes</h1>
+    <div class="container">
+        <h1>Sistema de Gestión de Estudiantes</h1>
     <p>Bienvenido al sistema. Selecciona una opción:</p>
-    <ul>
+    <p>
         <li><a href="estudiantes/listar">Ver lista de estudiantes</a></li>
         <li><a href="estudiantes/crear">Registrar nuevo estudiante</a></li>
-    </ul>
+    </p>
+    </div>
 </body>
 </html>

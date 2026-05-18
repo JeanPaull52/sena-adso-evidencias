@@ -11,48 +11,56 @@
 <head>
     <title>Lista de Estudiantes</title>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/css/styles.css">
 </head>
 <body>
 
-    <h1>Lista de Estudiantes</h1>
+    <div class="container">
 
-    <p><a href="<%= request.getContextPath() %>/">Volver al inicio</a></p>
+        <h1>Lista de Estudiantes</h1>
 
-    <% if (estudiantes == null || estudiantes.isEmpty()) { %>
-        <p>No hay estudiantes registrados.</p>
-    <% } else { %>
+        <p>
+            <a href="<%= request.getContextPath() %>/" class="btn">Volver al inicio</a>
+            <a href="<%= request.getContextPath() %>/estudiantes/crear" class="btn btn-success">Registrar nuevo estudiante</a>
+        </p>
 
-        <p>Total: <%= estudiantes.size() %> estudiantes</p>
+        <% if (estudiantes == null || estudiantes.isEmpty()) { %>
+            <p>No hay estudiantes registrados.</p>
+        <% } else { %>
 
-        <table border="1" cellpadding="5" cellspacing="0">
-            <thead>
-              <tr>
-                  <th>ID</th>
-                  <th>Nombre</th>
-                  <th>Correo</th>
-                  <th>Celular</th>
-                  <th>Dirección</th>
-                  <th>Acciones</th>
-              </tr>
-            </thead>
-            <tbody>
-                <% for (Estudiante e : estudiantes) { %>
-                <tr>
-                  <td><%= e.getIdEstudiante() %></td>
-                  <td><%= e.getNombre() %></td>
-                  <td><%= e.getCorreo() %></td>
-                  <td><%= e.getCelular() %></td>
-                  <td><%= e.getDireccion() %></td>
-                  <td>
-                    <a href="<%= request.getContextPath() %>/estudiantes/editar?id=<%= e.getIdEstudiante() %>">Editar</a>    |
-                    <a href="<%= request.getContextPath() %>/estudiantes/eliminar?id=<%= e.getIdEstudiante() %>"onclick="return confirm('¿Está seguro de eliminar al estudiante <%= e.getNombre() %>?');">Eliminar</a>
-                  </td>
-                </tr>
-                <% } %>
-            </tbody>
-        </table>
+            <p class="total">Total: <%= estudiantes.size() %> estudiantes</p>
 
-    <% } %>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Correo</th>
+                        <th>Celular</th>
+                        <th>Dirección</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for (Estudiante e : estudiantes) { %>
+                        <tr>
+                            <td><%= e.getIdEstudiante() %></td>
+                            <td><%= e.getNombre() %></td>
+                            <td><%= e.getCorreo() %></td>
+                            <td><%= e.getCelular() %></td>
+                            <td><%= e.getDireccion() %></td>
+                            <td class="acciones">
+                                <a href="<%= request.getContextPath() %>/estudiantes/editar?id=<%= e.getIdEstudiante() %>">Editar</a>
+                                <a href="<%= request.getContextPath() %>/estudiantes/eliminar?id=<%= e.getIdEstudiante() %>"onclick="return confirm('¿Está seguro de eliminar al estudiante <%= e.getNombre() %>?');">Eliminar</a>
+                            </td>
+                        </tr>
+                    <% } %>
+                </tbody>
+            </table>
+
+        <% } %>
+
+    </div>
 
 </body>
 </html>
