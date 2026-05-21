@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+
+        <!-- Conexión a la BD -->
+        <property name="hibernate.connection.driver_class">
+            com.microsoft.sqlserver.jdbc.SQLServerDriver
+        </property>
+
+        <property name="hibernate.connection.url">
+            jdbc:sqlserver://localhost:1433;databaseName=ejemplo_colegio;encrypt=true;trustServerCertificate=true
+        </property>
+
+        <property name="hibernate.connection.username">sa</property>
+        <property name="hibernate.connection.password">"AQUÍ-TU-CONTRASEÑA"</property>
+
+        <!-- Dialecto SQL para SQL Server -->
+        <property name="hibernate.dialect">
+            org.hibernate.dialect.SQLServerDialect
+        </property>
+
+        <!-- Comportamiento -->
+
+        <!-- Imprime en consola el SQL que Hibernate genera -->
+        <property name="hibernate.show_sql">true</property>
+
+        <!-- Formatea ese SQL para que sea legible -->
+        <property name="hibernate.format_sql">true</property>
+
+        <!-- Controla si Hibernate modifica el esquema de la BD, en este caso las tablas ya estan creadas - 
+        dejamos la opción de validate para ver que coincidan con la clase en Java-->
+        <property name="hibernate.hbm2ddl.auto">validate</property>
+
+        <!--Clase mapeada como entidad-->
+        <mapping package="com.juanpablo.sena.crud.model"/>
+        <mapping class="com.juanpablo.sena.crud.model.Estudiante"/>      
+
+    </session-factory>
+</hibernate-configuration>
