@@ -7,7 +7,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
-// Entidad que representa un estudiante en la BD.Cada instancia de esta clase = una fila en la tabla 'estudiante'.//
+// Entidad que representa un estudiante en la BD. Cada instancia de esta clase = una fila en la tabla 'estudiante'.
 
 @Entity //Entidad JPA - la clase que se va a mapear
 @Table(name = "estudiante") //Nombre de la tabla en la BD
