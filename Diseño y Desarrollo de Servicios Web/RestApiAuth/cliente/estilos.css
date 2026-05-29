@@ -1,0 +1,141 @@
+/* --- Variables de color --- */
+:root {
+    --color-fondo: #f4f5f7;
+    --color-superficie: #ffffff;
+    --color-texto: #2c3e50;
+    --color-primario: #34495e;
+    --color-primario-hover: #2c3e50;
+    --color-borde: #d9dde2;
+    --color-exito: #27ae60;
+    --color-error: #c0392b;
+}
+
+/* --- Reset --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ---- Página --- */
+body {
+    font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding: 40px 20px;
+}
+
+/* --- Títulos --- */
+h1, h2 {
+    margin-bottom: 24px;
+    font-weight: 600;
+}
+
+/* --- Tarjeta contenedora --- */
+.tarjeta {
+    background-color: var(--color-superficie);
+    border: 1px solid var(--color-borde);
+    border-radius: 8px;
+    padding: 32px;
+    width: 100%;
+    max-width: 460px;
+}
+
+.tarjeta-ancha {
+    max-width: 800px;
+}
+
+/* --- Formularios --- */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 6px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+input {
+    margin-bottom: 18px;
+    padding: 10px 12px;
+    border: 1px solid var(--color-borde);
+    border-radius: 6px;
+    font-size: 15px;
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--color-primario);
+}
+
+/* --- Botones --- */
+button {
+    padding: 11px 16px;
+    background-color: var(--color-primario);
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: var(--color-primario-hover);
+}
+
+/* --- Enlaces --- */
+a {
+    color: var(--color-primario);
+}
+
+p {
+    margin-top: 14px;
+}
+
+/* --- Mensajes --- */
+.mensaje {
+    margin-top: 14px;
+    padding: 10px 12px;
+    border-radius: 6px;
+    font-size: 14px;
+    background-color: #eafaf960;
+    color: var(--color-exito);
+    border: 1px solid var(--color-exito);
+}
+
+.mensaje-error {
+    background-color: #fdeded60;
+    color: var(--color-error);
+    border: 1px solid var(--color-error);
+}
+
+/* --- Tabla --- */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 8px;
+}
+
+th, td {
+    border: 1px solid var(--color-borde);
+    padding: 10px 12px;
+    text-align: left;
+    font-size: 14px;
+}
+
+th {
+    background-color: var(--color-primario);
+    color: #ffffff;
+    font-weight: 600;
+}
+
+tr:nth-child(even) td {
+    background-color: #f7f8fa;
+}

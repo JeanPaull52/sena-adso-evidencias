@@ -1,0 +1,16 @@
+# === Archivos de registro (logs) ===
+*.log
+debug.log
+
+# === Configuración del editor ===
+.vscode/
+.idea/
+
+# === Archivos del sistema operativo ===
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# === Dependencias ===
+/vendor/
+composer.lock
