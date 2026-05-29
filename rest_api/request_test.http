@@ -1,0 +1,26 @@
+###
+GET http://localhost:3000/books
+
+###
+GET http://localhost:3000/books/3
+
+###
+POST http://localhost:3000/books/
+Content-Type: application/json
+
+{
+    "title":"Breve historia del tiempo",
+    "author": "Stephen Hawking",
+    "year": 1988
+}
+
+###
+PUT http://localhost:3000/books/3
+Content-Type: application/json
+
+{
+    "year": 2001
+}
+
+###
+DELETE http://localhost:3000/books/3

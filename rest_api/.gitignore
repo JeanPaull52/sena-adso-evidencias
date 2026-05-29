@@ -1,0 +1,59 @@
+# ============================================
+# Dependencias
+# ============================================
+node_modules/
+
+# ============================================
+# Logs
+# ============================================
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ============================================
+# Variables de entorno (datos sensibles)
+# ============================================
+.env
+.env.local
+.env.development
+.env.production
+.env.*.local
+
+# ============================================
+# Archivos del sistema operativo
+# ============================================
+# Windows
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# macOS
+.DS_Store
+.AppleDouble
+
+# Linux
+*~
+
+# ============================================
+# Editores e IDEs
+# ============================================
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ============================================
+# Caché y archivos temporales
+# ============================================
+.cache/
+.npm/
+*.tmp
+*.temp
+
+# ============================================
+# Cobertura de pruebas
+# ============================================
+coverage/
+.nyc_output/
