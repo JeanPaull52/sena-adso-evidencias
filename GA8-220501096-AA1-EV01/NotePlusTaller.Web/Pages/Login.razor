@@ -1,0 +1,66 @@
+@page "/login"
+@layout EmptyLayout
+@inject AuthService AuthService
+@inject NavigationManager Nav
+
+<PageTitle>Iniciar sesión</PageTitle>
+
+<div class="card shadow-sm">
+    <div class="card-header bg-primary text-white py-3">
+        <h5 class="mb-0 text-center">NotePlus Taller</h5>
+        <p class="mb-0 text-center opacity-75 small">Sistema de gestión de personas</p>
+    </div>
+    <div class="card-body p-4">
+        <h6 class="mb-3">Iniciar sesión</h6>
+        <EditForm Model="model" OnValidSubmit="HandleLogin">
+            <DataAnnotationsValidator />
+            <div class="mb-3">
+                <label class="form-label">Usuario</label>
+                <InputText @bind-Value="model.NombreUsuario" class="form-control" placeholder="Nombre de usuario" />
+                <ValidationMessage For="() => model.NombreUsuario" class="text-danger small" />
+            </div>
+            <div class="mb-4">
+                <label class="form-label">Contraseña</label>
+                <input type="password" @bind="model.Contrasena" class="form-control" placeholder="Contraseña" />
+                <ValidationMessage For="() => model.Contrasena" class="text-danger small" />
+            </div>
+            @if (error is not null)
+            {
+                <div class="alert alert-danger py-2 small">@error</div>
+            }
+            <button type="submit" class="btn btn-primary w-100" disabled="@loading">
+                @(loading ? "Ingresando..." : "Ingresar")
+            </button>
+        </EditForm>
+    </div>
+    <div class="card-footer text-center py-3">
+        <small>
+            ¿No tiene cuenta?
+            <a href="/registro">Crear cuenta</a>
+        </small>
+    </div>
+</div>
+
+@code {
+    private readonly LoginModel model = new();
+    private string? error;
+    private bool loading;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var session = await AuthService.GetCurrentSession();
+        if (session is not null) Nav.NavigateTo("/personas", replace: true);
+    }
+
+    private async Task HandleLogin()
+    {
+        loading = true;
+        error = null;
+        var (exito, err) = await AuthService.Login(model);
+        if (exito)
+            Nav.NavigateTo("/personas");
+        else
+            error = err;
+        loading = false;
+    }
+}

@@ -1,0 +1,106 @@
+@page "/personas/editar/{Id:int}"
+@attribute [Authorize]
+@using NotePlusTaller.Web.Shared
+@inject ApiPersonaService PersonaService
+@inject ApiNacionalidadService NacionalidadService
+@inject NavigationManager Nav
+
+<PageTitle>Editar persona</PageTitle>
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h4 class="mb-0">Editar persona</h4>
+    <a href="/personas/detalle/@Id" class="btn btn-sm btn-outline-secondary">Volver</a>
+</div>
+
+@if (cargando)
+{
+    <div class="text-center py-5">
+        <div class="spinner-border text-primary" role="status"></div>
+    </div>
+}
+else if (noEncontrado)
+{
+    <div class="alert alert-warning">Persona no encontrada.</div>
+}
+else
+{
+    <div class="card">
+        <div class="card-body">
+            <EditForm Model="model" OnValidSubmit="HandleEditar">
+                <DataAnnotationsValidator />
+                <FormPersona Model="model" Nacionalidades="nacionalidades" />
+
+                <div class="mb-3 mt-2">
+                    <div class="form-check form-switch">
+                        <InputCheckbox @bind-Value="model.Estado" class="form-check-input" id="estado" />
+                        <label class="form-check-label" for="estado">Persona activa</label>
+                    </div>
+                </div>
+
+                @if (error is not null)
+                {
+                    <div class="alert alert-danger py-2 small">@error</div>
+                }
+
+                <div class="d-flex gap-2 mt-3">
+                    <button type="submit" class="btn btn-primary" disabled="@enviando">
+                        @(enviando ? "Guardando..." : "Guardar cambios")
+                    </button>
+                    <a href="/personas/detalle/@Id" class="btn btn-outline-secondary">Cancelar</a>
+                </div>
+            </EditForm>
+        </div>
+    </div>
+}
+
+@code {
+    [Parameter] public int Id { get; set; }
+
+    private readonly ActualizarPersonaModel model = new();
+    private List<NacionalidadModel> nacionalidades = [];
+    private string? error;
+    private bool enviando;
+    private bool cargando = true;
+    private bool noEncontrado;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var personaTask = PersonaService.GetById(Id);
+        var nacsTask = NacionalidadService.GetAll();
+        await Task.WhenAll(personaTask, nacsTask);
+        var persona = personaTask.Result;
+        var nacs = nacsTask.Result;
+
+        nacionalidades = nacs;
+
+        if (persona is null) { noEncontrado = true; cargando = false; return; }
+
+        model.IDNacionalidad = persona.IDNacionalidad;
+        model.TipoDocumento = persona.TipoDocumento;
+        model.NumeroDocumento = persona.NumeroDocumento;
+        model.PrimerNombre = persona.PrimerNombre;
+        model.SegundoNombre = persona.SegundoNombre;
+        model.PrimerApellido = persona.PrimerApellido;
+        model.SegundoApellido = persona.SegundoApellido;
+        model.FechaNacimiento = persona.FechaNacimiento;
+        model.TelefonoFijo = persona.TelefonoFijo;
+        model.Celular = persona.Celular;
+        model.CorreoElectronico = persona.CorreoElectronico;
+        model.DireccionResidencia = persona.DireccionResidencia;
+        model.Estado = persona.Estado;
+
+        cargando = false;
+    }
+
+    private async Task HandleEditar()
+    {
+        enviando = true;
+        error = null;
+        var (resultado, err) = await PersonaService.Actualizar(Id, model);
+        enviando = false;
+        if (resultado is not null)
+            Nav.NavigateTo($"/personas/detalle/{Id}");
+        else
+            error = err;
+    }
+}

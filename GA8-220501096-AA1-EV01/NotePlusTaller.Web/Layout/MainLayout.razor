@@ -1,0 +1,33 @@
+@inherits LayoutComponentBase
+@using NotePlusTaller.Web.Services
+@inject AuthService AuthService
+@inject NavigationManager Nav
+
+<div class="page">
+    <div class="sidebar">
+        <NavMenu />
+    </div>
+
+    <main>
+        <div class="top-row px-4 d-flex justify-content-end align-items-center gap-3">
+            <AuthorizeView>
+                <Authorized>
+                    <span class="text-muted small">@context.User.FindFirst("NombreCompleto")?.Value</span>
+                    <button class="btn btn-sm btn-outline-secondary" @onclick="Logout">Cerrar sesión</button>
+                </Authorized>
+            </AuthorizeView>
+        </div>
+
+        <article class="content px-4">
+            @Body
+        </article>
+    </main>
+</div>
+
+@code {
+    private async Task Logout()
+    {
+        await AuthService.Logout();
+        Nav.NavigateTo("/login");
+    }
+}
