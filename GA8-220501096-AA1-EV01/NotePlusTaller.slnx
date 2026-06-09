@@ -1,5 +1,0 @@
-<Solution>
-  <Project Path="NotePlusTaller.API/NotePlusTaller.API.csproj" />
-  <Project Path="NotePlusTaller.Tests/NotePlusTaller.Tests.csproj" />
-  <Project Path="NotePlusTaller.Web/NotePlusTaller.Web.csproj" />
-</Solution>
