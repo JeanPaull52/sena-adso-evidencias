@@ -33,6 +33,8 @@ builder.Services.AddScoped<AuthService>();
 
 builder.Services.AddControllers();
 builder.Services.AddOpenApi();
+builder.Services.AddAuthentication();
+builder.Services.AddAuthorization();
 
 // CORS — orígenes fijos de producción + appsettings + variable de entorno
 string[] productionOrigins =
@@ -89,6 +91,7 @@ if (app.Environment.IsDevelopment())
     app.MapOpenApi();
 }
 
+app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
 

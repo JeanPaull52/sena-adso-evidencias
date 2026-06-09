@@ -1,9 +1,11 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using NotePlusTaller.API.Models;
 using NotePlusTaller.API.Services;
 
 namespace NotePlusTaller.API.Controllers;
 
+[AllowAnonymous]
 [ApiController]
 [Route("api/[controller]")]
 public class NacionalidadesController(NacionalidadService service) : ControllerBase
