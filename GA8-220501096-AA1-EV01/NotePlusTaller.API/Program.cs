@@ -65,12 +65,16 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
-if (app.Environment.IsDevelopment())
-    app.MapOpenApi();
+app.UseRouting();
 
 app.UseCors("FrontendPolicy");
+
 if (app.Environment.IsDevelopment())
+{
     app.UseHttpsRedirection();
+    app.MapOpenApi();
+}
+
 app.UseAuthorization();
 app.MapControllers();
 
