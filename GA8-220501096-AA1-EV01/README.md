@@ -1,6 +1,6 @@
 # NotePlus Taller — GA8-220501096-AA1-EV01
 
-Sistema web de gestión de personas desarrollado con Next.js 14, TypeScript y Supabase como base de datos en la nube.
+Taller con tablas del proyecto NotePlus con Next.js 14, TypeScript y Supabase como base de datos en la nube.
 
 ---
 

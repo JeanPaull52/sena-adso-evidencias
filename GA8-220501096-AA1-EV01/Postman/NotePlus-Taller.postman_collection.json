@@ -1,0 +1,325 @@
+{
+  "info": {
+    "_postman_id": "b82902ae-fbcd-4b76-9ee4-3ea9f4900708",
+    "name": "NotePlus-Taller",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "55300318",
+    "_collection_link": "https://go.postman.co/collection/55300318-b82902ae-fbcd-4b76-9ee4-3ea9f4900708?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Nacionalidades",
+      "item": [
+        {
+          "name": "GET Listar Todas",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://sena-adso-evidencias.vercel.app/api/nacionalidades",
+              "protocol": "https",
+              "host": [
+                "sena-adso-evidencias",
+                "vercel",
+                "app"
+              ],
+              "path": [
+                "api",
+                "nacionalidades"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET Listar por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://sena-adso-evidencias.vercel.app/api/nacionalidades/1",
+              "protocol": "https",
+              "host": [
+                "sena-adso-evidencias",
+                "vercel",
+                "app"
+              ],
+              "path": [
+                "api",
+                "nacionalidades",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET ID Inexistente",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://sena-adso-evidencias.vercel.app/api/nacionalidades/999",
+              "protocol": "https",
+              "host": [
+                "sena-adso-evidencias",
+                "vercel",
+                "app"
+              ],
+              "path": [
+                "api",
+                "nacionalidades",
+                "999"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Roles",
+      "item": [
+        {
+          "name": "GET Listar Todos",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://sena-adso-evidencias.vercel.app/api/roles",
+              "protocol": "https",
+              "host": [
+                "sena-adso-evidencias",
+                "vercel",
+                "app"
+              ],
+              "path": [
+                "api",
+                "roles"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POST Login Válido",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"NombreUsuario\": \"juanq\",\r\n  \"Contrasena\": \"admin12345\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://sena-adso-evidencias.vercel.app/api/auth/login",
+              "protocol": "https",
+              "host": [
+                "sena-adso-evidencias",
+                "vercel",
+                "app"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POST Login sin Credenciales",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://sena-adso-evidencias.vercel.app/api/auth/login",
+              "protocol": "https",
+              "host": [
+                "sena-adso-evidencias",
+                "vercel",
+                "app"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POST Login Credenciales Invalidas",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"NombreUsuario\": \"usuariofalso\",\r\n  \"Contrasena\": \"clavefalsa\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://sena-adso-evidencias.vercel.app/api/auth/login",
+              "protocol": "https",
+              "host": [
+                "sena-adso-evidencias",
+                "vercel",
+                "app"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Personas",
+      "item": [
+        {
+          "name": "GET Listar Todas",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://sena-adso-evidencias.vercel.app/api/personas",
+              "protocol": "https",
+              "host": [
+                "sena-adso-evidencias",
+                "vercel",
+                "app"
+              ],
+              "path": [
+                "api",
+                "personas"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POST Crear Persona",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"IDNacionalidad\": 1,\r\n  \"TipoDocumento\": \"CC\",\r\n  \"NumeroDocumento\": \"987654321\",\r\n  \"PrimerNombre\": \"Maria\",\r\n  \"PrimerApellido\": \"Lopez\",\r\n  \"FechaNacimiento\": \"1995-05-15\",\r\n  \"Celular\": \"3001234567\",\r\n  \"CorreoElectronico\": \"maria@test.com\",\r\n  \"DireccionResidencia\": \"Calle 123\",\r\n  \"Estado\": \"Activo\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://sena-adso-evidencias.vercel.app/api/personas",
+              "protocol": "https",
+              "host": [
+                "sena-adso-evidencias",
+                "vercel",
+                "app"
+              ],
+              "path": [
+                "api",
+                "personas"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POST Crear Persona sin Campos Requeridos",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://sena-adso-evidencias.vercel.app/api/personas",
+              "protocol": "https",
+              "host": [
+                "sena-adso-evidencias",
+                "vercel",
+                "app"
+              ],
+              "path": [
+                "api",
+                "personas"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PUT Actualizar Persona",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"PrimerNombre\": \"Maria Elena\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://sena-adso-evidencias.vercel.app/api/personas/14",
+              "protocol": "https",
+              "host": [
+                "sena-adso-evidencias",
+                "vercel",
+                "app"
+              ],
+              "path": [
+                "api",
+                "personas",
+                "14"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE Eliminar Persona",
+          "request": {
+            "method": "GET",
+            "header": []
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
