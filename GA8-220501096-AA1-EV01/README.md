@@ -8,7 +8,7 @@ Taller con tablas del proyecto NotePlus con Next.js 14, TypeScript y Supabase co
 
 **Juan Pablo Quiroga**  
 Aprendiz SENA — ADSO  
-Ficha: GA8-220501096-AA1-EV01
+Ficha: 3118562
 
 ---
 
