@@ -34,16 +34,26 @@ builder.Services.AddScoped<AuthService>();
 builder.Services.AddControllers();
 builder.Services.AddOpenApi();
 
-// CORS — orígenes de appsettings + variable de entorno CORS_ALLOWED_ORIGINS (separados por coma)
-var allowedOrigins = builder.Configuration
+// CORS — orígenes fijos de producción + appsettings + variable de entorno
+string[] productionOrigins =
+[
+    "https://noteplus-taller-web.onrender.com",
+    "https://sena-adso-evidencias.onrender.com"
+];
+
+var configOrigins = builder.Configuration
     .GetSection("Cors:AllowedOrigins")
     .Get<string[]>() ?? [];
 
-var extraOrigins = Environment.GetEnvironmentVariable("CORS_ALLOWED_ORIGINS")
+var envOrigins = Environment.GetEnvironmentVariable("CORS_ALLOWED_ORIGINS")
     ?.Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries)
     ?? [];
 
-allowedOrigins = [.. allowedOrigins, .. extraOrigins];
+var allowedOrigins = productionOrigins
+    .Concat(configOrigins)
+    .Concat(envOrigins)
+    .Distinct()
+    .ToArray();
 
 builder.Services.AddCors(options =>
 {
