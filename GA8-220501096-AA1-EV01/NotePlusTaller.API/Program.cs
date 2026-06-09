@@ -65,9 +65,23 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
-app.UseRouting();
+app.Use(async (context, next) =>
+{
+    if (context.Request.Method == "OPTIONS")
+    {
+        context.Response.Headers["Access-Control-Allow-Origin"]  = "https://noteplus-taller-web.onrender.com";
+        context.Response.Headers["Access-Control-Allow-Methods"] = "GET, POST, PUT, DELETE, OPTIONS";
+        context.Response.Headers["Access-Control-Allow-Headers"] = "Content-Type, Authorization";
+        context.Response.StatusCode = 200;
+        await context.Response.CompleteAsync();
+        return;
+    }
+    await next();
+});
 
 app.UseCors("FrontendPolicy");
+
+app.UseRouting();
 
 if (app.Environment.IsDevelopment())
 {
