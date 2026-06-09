@@ -8,10 +8,13 @@ var builder = WebApplication.CreateBuilder(args);
 // Cadena de conexión: primero variable de entorno, luego appsettings
 var connectionString =
     Environment.GetEnvironmentVariable("SUPABASE_CONNECTION_STRING")
-    ?? builder.Configuration.GetConnectionString("DefaultConnection")
-    ?? throw new InvalidOperationException(
+    ?? builder.Configuration.GetConnectionString("DefaultConnection");
+
+if (string.IsNullOrWhiteSpace(connectionString))
+    throw new InvalidOperationException(
         "La cadena de conexión no está configurada. " +
-        "Define la variable de entorno SUPABASE_CONNECTION_STRING.");
+        "Define SUPABASE_CONNECTION_STRING o configura " +
+        "ConnectionStrings:DefaultConnection en appsettings.Development.json.");
 
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseNpgsql(connectionString));
