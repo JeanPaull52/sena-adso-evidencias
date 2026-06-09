@@ -14,6 +14,6 @@ services:
   - type: web
     name: noteplus-taller-web
     runtime: docker
-    dockerfilePath: NotePlusTaller.Web/Dockerfile
-    dockerContext: GA8-220501096-AA1-EV01
+    dockerfilePath: GA8-220501096-AA1-EV01/NotePlusTaller.Web/Dockerfile
+    dockerContext: .
     plan: free
