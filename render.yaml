@@ -10,3 +10,10 @@ services:
         value: Production
       - key: SUPABASE_CONNECTION_STRING
         sync: false
+
+  - type: web
+    name: noteplus-taller-web
+    runtime: docker
+    dockerfilePath: NotePlusTaller.Web/Dockerfile
+    dockerContext: GA8-220501096-AA1-EV01
+    plan: free
